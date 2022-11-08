@@ -6,11 +6,11 @@ use CodeIgniter\Database\Migration;
 
 class Dbsanger extends Migration
 {
-    public function up()
+	public function up()
 	{
 		// create tbl_jenis_kelas
-        $this->forge->addField([
-			'id_jenis' => ['type' => 'VARCHAR', 'constraint' => 10],
+		$this->forge->addField([
+			'id_jenis' => ['type' => 'VARCHAR', 'constraint' => 15],
 			'nama_jenis' => ['type' => 'VARCHAR', 'constraint' => 20],
 		]);
 
@@ -19,9 +19,9 @@ class Dbsanger extends Migration
 
 		// create tbl_kelas
 		$this->forge->addField([
-			'id_kelas'   => ['type' => 'VARCHAR', 'constraint' => 10],
+			'id_kelas'   => ['type' => 'VARCHAR', 'constraint' => 15],
 			'nama_kelas' => ['type' => 'VARCHAR', 'constraint' => 20],
-			'id_jenis'   => ['type' => 'VARCHAR', 'constraint' => 10],
+			'id_jenis'   => ['type' => 'VARCHAR', 'constraint' => 15],
 			'ket_kelas'  => ['type' => 'TEXT', 'constraint' => 1000],
 			'harga'      => ['type' => 'INT', 'constraint' => 20],
 		]);
@@ -32,8 +32,8 @@ class Dbsanger extends Migration
 
 		// create tbl_pendaftaran
 		$this->forge->addField([
-			'id_pendaftaran'      => ['type' => 'VARCHAR', 'constraint' => 10],
-			'id_kelas'            => ['type' => 'VARCHAR', 'constraint' => 10],
+			'id_pendaftaran'      => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_kelas'            => ['type' => 'VARCHAR', 'constraint' => 15],
 			'tanggal_pendaftaran' => ['type' => 'DATETIME'],
 		]);
 
@@ -43,8 +43,8 @@ class Dbsanger extends Migration
 
 		// create tbl_konfirmasi 
 		$this->forge->addField([
-			'id_konfirmasi' => ['type' => 'VARCHAR', 'constraint' => 10],
-			'id_pendaftaran' => ['type' => 'VARCHAR', 'constraint' => 10, 'null' => true],
+			'id_konfirmasi' => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_pendaftaran' => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
 			'status_administrasi' => ['type' => 'ENUM', 'constraint' => ['lunas', 'belum lunas'], 'default' => 'belum lunas'],
 			'bukti_administrasi' => ['type' => 'VARCHAR', 'constraint' => 255],
 			'tanggal_administrasi' => ['type' => 'DATE', 'null' => true]
@@ -73,12 +73,11 @@ class Dbsanger extends Migration
 		$this->forge->addKey('id_user', true);
 		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('tbl_user');
+	}
 
-    }
-
-    public function down()
-    {
-        // drop tbl_jenis_kelas
+	public function down()
+	{
+		// drop tbl_jenis_kelas
 		$this->forge->dropTable('tbl_jenis_kelas');
 		// drop tbl_kelas 
 		$this->forge->dropTable('tbl_kelas');
@@ -88,5 +87,5 @@ class Dbsanger extends Migration
 		$this->forge->dropTable('tbl_konfirmasi');
 		// drop tbl_user 
 		$this->forge->dropTable('tbl_user');
-    }
+	}
 }
