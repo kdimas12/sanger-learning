@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn-warning {
+    background-color: #e68a28;
+    color: white;
+}
+
+.btn-outline-warning {
+    border-color: #E77800;
+    color: #E77800;
+}
+
+.btn-warning:hover, .btn-outline-warning:hover {
+    background-color: #E77800;
+    color: white;
+}
+
+.btn-warning:focus, .btn-outline-warning:focus {
+    background-color: #E77800!important;
+    color: white!important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show >.nav-link {
+    background-color: #E77800!important;
+}
+
+.nav-pills > .nav-link {
+    color: #E77800;
+}
