@@ -19,7 +19,7 @@
 								<small class="badge rounded-pill text-bg-success"><?= $course['nama_jenis'] ?></small>
 								<p class="card-text"><?= $course['ket_kelas'] ?></p>
 								<div class="d-grid">
-									<a href="<?= base_url('courses') ?>/send/<?= $course['id_kelas'] ?>" class="btn btn-warning">Register</a>
+									<a href="<?= base_url('pendaftaran-kelas') ?>/<?= $course['id_kelas'] ?>" class="btn btn-warning">Register</a>
 								</div>
 							</div>
 						</div>

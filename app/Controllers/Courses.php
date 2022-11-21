@@ -43,21 +43,4 @@ class Courses extends BaseController
 
 		return view('courses', $data);
 	}
-
-	public function send($idKelas)
-	{
-		$kodePendaftaran = $this->pendaftaranKelasModel->getKodePendaftaran();
-		$dataPendaftaran = [
-			'id_pendaftaran'        => $kodePendaftaran,
-			'id_kelas'              => $idKelas,
-			'tanggal_pendaftaran'   => date('Y-m-d H:i:s'),
-		];
-		$this->pendaftaranKelasModel->insertPendaftaranKelas($dataPendaftaran);
-
-		$dataUser = [
-			'id_pendaftaran'    => $kodePendaftaran,
-		];
-		$this->userModel->update($this->userModel->find(session()->get('id_user')), $dataUser);
-		return redirect()->to(base_url(''));
-	}
 }

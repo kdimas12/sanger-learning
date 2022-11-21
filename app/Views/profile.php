@@ -18,9 +18,9 @@
         <div class="col-md-6">
             <label class="form-label">Jenis Kelamin</label>
             <select name="jenis_kelamin" class="form-select" aria-label="gender">
-                <option selected>Pilih</option>
-                <option value="pria" <?= set_select($dataUser['jenis_kelamin'], 'pria', (!empty($dataUser['jenis_kelamin']) && $dataUser['jenis_kelamin'] == "pria" ? TRUE : FALSE)) ?>>Pria</option>
-                <option value="wanita" <?php echo set_select($dataUser['jenis_kelamin'], 'wanita', (!empty($dataUser['jenis_kelamin']) && $dataUser['jenis_kelamin'] == "wanita" ? TRUE : FALSE)) ?>>Wanita</option>
+                <option value="" <?= ($dataUser['jenis_kelamin'] == null ? 'selected' : '') ?>>Pilih</option>
+                <option value="pria" <?= ($dataUser['jenis_kelamin'] == 'pria' ? 'selected' : '') ?>>Pria</option>
+                <option value="wanita" <?= ($dataUser['jenis_kelamin'] == 'wanita' ? 'selected' : '') ?>>Wanita</option>
             </select>
         </div>
         <div class="col-md-6">
