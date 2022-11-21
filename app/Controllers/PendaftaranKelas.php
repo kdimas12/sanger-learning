@@ -15,13 +15,14 @@ class PendaftaranKelas extends BaseController
         $this->coursesModel = new CoursesModel();
         $this->pendaftaranKelasModel = new PendaftaranKelasModel();
     }
-    public function index()
+    public function index($idKelas = null)
     {
         $dataCourse = $this->coursesModel->getCourses();
 
         $data = array(
-            'title'         => 'Pendaftaran Kelas',
-            'dataCourses'   => $dataCourse,
+            'title'             => 'Pendaftaran Kelas',
+            'dataCourses'       => $dataCourse,
+            'selectedCourses'   => $idKelas,
         );
         return view('pendaftaran_kelas', $data);
     }
