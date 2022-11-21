@@ -41,7 +41,6 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->group('courses', ['filter' => 'auth'], function ($routes) {
 	$routes->get('/', 'Courses::index');
-	$routes->post('send', 'Courses::send');
 });
 $routes->group('login', ['filter' => 'redirectAuth'], function ($routes) {
 	$routes->get('/', 'Login::index');
@@ -60,6 +59,7 @@ $routes->group('profile', ['filter' => 'auth'], function ($routes) {
 });
 $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 	$routes->get('/', 'PendaftaranKelas::index');
+	$routes->get('(:any)', 'PendaftaranKelas::index/$1');
 	$routes->post('daftar', 'PendaftaranKelas::daftar');
 });
 
