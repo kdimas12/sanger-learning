@@ -51,7 +51,8 @@ $routes->group('register', ['filter' => 'redirectAuth'], function ($routes) {
 	$routes->post('save', 'Register::save');
 });
 $routes->get('/logout', 'Logout::index');
-$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('/dashboard', 'Dashboard::index');
+// ['filter' => 'auth']
 $routes->get('/contact', 'Contact::index');
 $routes->group('profile', ['filter' => 'auth'], function ($routes) {
 	$routes->get('/', 'Profile::index');
@@ -62,6 +63,8 @@ $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 	$routes->get('(:any)', 'PendaftaranKelas::index/$1');
 	$routes->post('daftar', 'PendaftaranKelas::daftar');
 });
+
+// admin
 
 /*
  * --------------------------------------------------------------------
