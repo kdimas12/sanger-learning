@@ -18,9 +18,9 @@
 
                     <td><?= $course['nama_kelas'] ?></td>
                     <td><?= $course['id_kelas'] ?></td>
-                    <td><?= $course['id_jenis'] ?></td>
+                    <td><?= $course['nama_jenis'] ?></td>
                     <td><?= $course['ket_kelas'] ?></td>
-                    <td><?= $course['harga'] ?></td>
+                    <td>Rp <?= number_format($course['harga'], 2, ',', '.') ?></td>
                 <?php endforeach ?>
             </tr>
         </tbody>
