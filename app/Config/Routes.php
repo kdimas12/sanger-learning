@@ -39,7 +39,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->group('courses', ['filter' => 'auth'], function ($routes) {
+$routes->group('courses', function ($routes) {
 	$routes->get('/', 'Courses::index');
 });
 $routes->group('login', ['filter' => 'redirectAuth'], function ($routes) {
@@ -51,7 +51,6 @@ $routes->group('register', ['filter' => 'redirectAuth'], function ($routes) {
 	$routes->post('save', 'Register::save');
 });
 $routes->get('/logout', 'Logout::index');
-$routes->get('/dashboard', 'Dashboard::index');
 // ['filter' => 'auth']
 $routes->get('/contact', 'Contact::index');
 $routes->group('profile', ['filter' => 'auth'], function ($routes) {
@@ -65,6 +64,10 @@ $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 });
 
 // admin
+$routes->group('dashboard', function ($routes) {
+	$routes->get('/', 'Dashboard::index');
+	$routes->get('kelas', 'Dashboard::kelas');
+});
 
 /*
  * --------------------------------------------------------------------
