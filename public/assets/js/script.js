@@ -14,6 +14,4 @@ $(document).ready(function () {
       $("#" + inst.id).attr("value", dateText);
     },
   });
-
-  $("#tabel-data").DataTable();
 });
