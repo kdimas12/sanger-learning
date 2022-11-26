@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CoursesModel;
+use \Hermawan\DataTables\DataTable;
 
 class Dashboard extends BaseController
 {
@@ -24,5 +25,10 @@ class Dashboard extends BaseController
 			'dataCourses'       => $dataCourse,
 		);
 		return view('dashboard/kelas', $data);
+	}
+
+	public function kelasDataTables()
+	{
+		return DataTable::of($this->coursesModel->getCourses())->addNumbering()->toJson();
 	}
 }
