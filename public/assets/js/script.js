@@ -14,4 +14,10 @@ $(document).ready(function () {
       $("#" + inst.id).attr("value", dateText);
     },
   });
+
+  $("#dataTable").DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: "http://localhost:8080/dashboard/kelas-data-tables",
+  });
 });

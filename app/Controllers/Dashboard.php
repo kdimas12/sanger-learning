@@ -26,9 +26,4 @@ class Dashboard extends BaseController
 		);
 		return view('dashboard/kelas', $data);
 	}
-
-	public function kelasDataTables()
-	{
-		return DataTable::of($this->coursesModel->getCourses())->addNumbering()->toJson();
-	}
 }

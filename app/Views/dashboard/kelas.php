@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="mt-4">
-    <table id="dataTable">
+    <table id="datatablesSimple">
         <thead>
             <tr>
                 <th>ID Kelas</th>

@@ -22,4 +22,10 @@ class CoursesModel extends Model
 	{
 		return $this->db->table('tbl_pendaftaran')->insert($dataPendaftaran);
 	}
+
+	public function getCoursesDataTables()
+	{
+		$query = $this->db->table('tbl_kelas')->select('id_kelas, nama_kelas, id_jenis, ket_kelas, harga');
+		return $query;
+	}
 }
