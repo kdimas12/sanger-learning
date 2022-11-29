@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CoursesModel;
-use \Hermawan\DataTables\DataTable;
+use Irsyadulibad\DataTables\DataTables;
 
 class Dashboard extends BaseController
 {
@@ -25,5 +25,12 @@ class Dashboard extends BaseController
 			'dataCourses'       => $dataCourse,
 		);
 		return view('dashboard/kelas', $data);
+	}
+
+	public function json()
+	{
+		return DataTables::use('tbl_kelas')->addColumn('action', function ($data) {
+			return '<a href="' . $data->id_kelas . '" class="btn btn-primary btn-sm">Edit</a> <a href="' . $data->id_kelas . '" class="btn btn-danger btn-sm">Hapus</a>';
+		})->rawColumns(['action'])->make();
 	}
 }

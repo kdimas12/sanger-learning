@@ -16,11 +16,11 @@
             <?= $this->include('dashboard/layout/footer') ?>
         </div>
     </div>
+    <script src="<?= base_url('assets/js/jquery-3.6.0.js') ?>"></script>
+    <script src="<?= base_url('assets/js/script.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/js/sidebar-sbadmin.js') ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="<?= base_url('assets/js/simple-datatables.js') ?>"></script>
-    <script src="<?= base_url('assets/js/datatables-simple-demo.js') ?>"></script>
+    <script src="<?= base_url('assets/js/datatables.min.js') ?>"></script>
 </body>
 
 </html>

@@ -67,6 +67,7 @@ $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 $routes->group('dashboard', function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 	$routes->get('kelas', 'Dashboard::kelas');
+	$routes->get('json', 'Dashboard::json');
 });
 
 /*
