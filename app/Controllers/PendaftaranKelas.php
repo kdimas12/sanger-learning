@@ -17,7 +17,7 @@ class PendaftaranKelas extends BaseController
     }
     public function index($idKelas = null)
     {
-        $dataCourse = $this->coursesModel->getCourses();
+        $dataCourse = $this->coursesModel->findAll();
 
         $data = array(
             'title'             => 'Pendaftaran Kelas',
@@ -35,12 +35,12 @@ class PendaftaranKelas extends BaseController
             'id_kelas'              => $this->request->getVar('kelas'),
             'tanggal_pendaftaran'   => date('Y-m-d H:i:s'),
         ];
-        $this->pendaftaranKelasModel->insertPendaftaranKelas($dataPendaftaran);
+        $this->pendaftaranKelasModel->insert($dataPendaftaran);
 
         $dataUser = [
             'id_pendaftaran'    => $kodePendaftaran,
         ];
         $this->userModel->update($this->userModel->find(session()->get('id_user')), $dataUser);
-        return redirect()->to(base_url(''));
+        return redirect()->to(base_url());
     }
 }

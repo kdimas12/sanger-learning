@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class KonfirmasiModel extends Model
 {
-    public function getKonfirmasi()
-    {
-        return $this->db->table('tbl_konfirmasi')->get()->getResultArray();
-    }
-
-    public function insertKonfirmasi($dataKonfirmasi)
-    {
-        return $this->db->table('tbl_konfirmasi')->insert($dataKonfirmasi);
-    }
+    protected $table = 'tbl_konfirmasi';
+    protected $primaryKey = 'id_konfirmasi';
+    protected $allowedFields = [
+        'id_konfirmasi',
+        'id_pendaftaran',
+        'status_administrasi',
+        'bukti_administrasi',
+        'tanggal_administrasi'
+    ];
 }

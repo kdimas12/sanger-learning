@@ -16,7 +16,7 @@
 						<div class="card mb-3">
 							<div class="card-body">
 								<h5 class="card-title"><?= $course['nama_kelas'] ?></h5>
-								<small class="badge rounded-pill text-bg-success"><?= $course['nama_jenis'] ?></small>
+								<small class="badge rounded-pill text-bg-success"><?= $course['id_jenis'] ?></small>
 								<p class="card-text"><?= $course['ket_kelas'] ?></p>
 								<div class="d-grid">
 									<a href="<?= base_url('pendaftaran-kelas') ?>/<?= $course['id_kelas'] ?>" class="btn btn-warning">Register</a>

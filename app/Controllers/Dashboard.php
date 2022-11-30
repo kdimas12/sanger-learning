@@ -20,11 +20,7 @@ class Dashboard extends BaseController
 
 	public function kelas()
 	{
-		$dataCourse = $this->coursesModel->getCourses();
-		$data = array(
-			'dataCourses'       => $dataCourse,
-		);
-		return view('dashboard/kelas', $data);
+		return view('dashboard/kelas');
 	}
 
 	public function json()

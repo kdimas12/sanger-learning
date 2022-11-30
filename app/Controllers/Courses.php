@@ -20,7 +20,7 @@ class Courses extends BaseController
 
 	public function index()
 	{
-		$dataCourses = $this->coursesModel->getCoursesDistinct();
+		$dataCourses = $this->coursesModel->findAll();
 
 		function group_by($key, $data)
 		{
@@ -34,7 +34,7 @@ class Courses extends BaseController
 			}
 			return $result;
 		}
-		$result = group_by("nama_jenis", $dataCourses);
+		$result = group_by("id_jenis", $dataCourses);
 
 		$data = array(
 			'title' => 'Courses',

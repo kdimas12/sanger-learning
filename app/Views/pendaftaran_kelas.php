@@ -8,7 +8,7 @@
             <select name="kelas" class="form-select" aria-label="kelas">
                 <option selected>Pilih</option>
                 <?php foreach ($dataCourses as $course => $value) : ?>
-                    <option value="<?= $value['id_kelas'] ?>" <?= ($selectedCourses == $value['id_kelas']) ? "selected" : "" ?>>[<?= $value['nama_jenis'] ?>] <?= $value['nama_kelas'] ?></option>
+                    <option value="<?= $value['id_kelas'] ?>" <?= ($selectedCourses == $value['id_kelas']) ? "selected" : "" ?>>[<?= $value['id_jenis'] ?>] <?= $value['nama_kelas'] ?></option>
                 <?php endforeach ?>
             </select>
         </div>
