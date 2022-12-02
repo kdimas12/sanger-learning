@@ -13,6 +13,7 @@ $(document).ready(function () {
       { data: "harga", name: "harga" },
       { data: "action", name: "action" },
     ],
+    columnDefs: [{ width: 100, targets: 5 }],
   });
 
   const url = window.location.href;
