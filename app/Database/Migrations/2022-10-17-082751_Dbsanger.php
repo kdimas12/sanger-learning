@@ -27,7 +27,7 @@ class Dbsanger extends Migration
 		]);
 
 		$this->forge->addKey('id_kelas', true);
-		$this->forge->addForeignKey('id_jenis', 'tbl_jenis_kelas', 'id_jenis', 'CASCADE', 'NULL');
+		$this->forge->addForeignKey('id_jenis', 'tbl_jenis_kelas', 'id_jenis', 'CASCADE', 'SET NULL');
 		$this->forge->createTable('tbl_kelas');
 
 		// create tbl_pendaftaran
@@ -38,7 +38,7 @@ class Dbsanger extends Migration
 		]);
 
 		$this->forge->addKey('id_pendaftaran', true);
-		$this->forge->addForeignKey('id_kelas', 'tbl_kelas', 'id_kelas', 'CASCADE', 'NULL');
+		$this->forge->addForeignKey('id_kelas', 'tbl_kelas', 'id_kelas', 'CASCADE', 'SET NULL');
 		$this->forge->createTable('tbl_pendaftaran');
 
 		// create tbl_konfirmasi 
@@ -71,7 +71,7 @@ class Dbsanger extends Migration
 		]);
 
 		$this->forge->addKey('id_user', true);
-		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'NULL');
+		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'SET NULL');
 		$this->forge->createTable('tbl_user');
 	}
 
