@@ -2,6 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="mt-4">
+    <a href="<?= base_url('dashboard/kelas/tambah') ?>" class="btn btn-primary mb-4">Tambah Kelas</a>
     <table id="data-kelas" class="table table-striped" style="width:100%">
         <thead>
             <tr>
