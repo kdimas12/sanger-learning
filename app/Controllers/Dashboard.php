@@ -72,7 +72,7 @@ class Dashboard extends BaseController
 		echo view('dashboard/kelas_edit', $data);
 	}
 
-	public function delete($id)
+	public function hapus($id)
 	{
 		$this->coursesModel->delete($id);
 		return redirect('dashboard/kelas');
@@ -81,9 +81,10 @@ class Dashboard extends BaseController
 	public function json()
 	{
 		return DataTables::use('tbl_kelas')->addColumn('action', function ($data) {
-			$uri = base_url() . '/dashboard/kelas/' . $data->id_kelas . '/edit';
+			$uriEdit = base_url() . '/dashboard/kelas/' . $data->id_kelas . '/edit';
+			$uriHapus = base_url() . '/dashboard/kelas/' . $data->id_kelas . '/hapus';
 
-			return '<a href="' . $uri . '" class="btn btn-primary btn-sm">Edit</a> <a href="' . $data->id_kelas . '" class="btn btn-danger btn-sm">Hapus</a>';
+			return '<a href="' . $uriEdit . '" class="btn btn-primary btn-sm">Edit</a> <a href="' . $uriHapus . '" class="btn btn-danger btn-sm">Hapus</a>';
 		})->rawColumns(['action'])->make();
 	}
 }

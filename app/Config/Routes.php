@@ -69,6 +69,7 @@ $routes->group('dashboard', function ($routes) {
 	$routes->get('kelas', 'Dashboard::kelas');
 	$routes->add('kelas/tambah', 'Dashboard::tambah');
 	$routes->add('kelas/(:segment)/edit', 'Dashboard::edit/$1');
+	$routes->get('kelas/(:segment)/hapus', 'Dashboard::hapus/$1');
 	$routes->get('json', 'Dashboard::json');
 });
 
