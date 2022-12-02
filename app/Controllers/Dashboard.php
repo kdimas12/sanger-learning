@@ -80,7 +80,7 @@ class Dashboard extends BaseController
 
 	public function json()
 	{
-		return DataTables::use('tbl_kelas')->addColumn('action', function ($data) {
+		return DataTables::use('tbl_kelas')->join('tbl_jenis_kelas', 'tbl_kelas.id_jenis = tbl_jenis_kelas.id_jenis', 'inner')->addColumn('action', function ($data) {
 			$uriEdit = base_url() . '/dashboard/kelas/' . $data->id_kelas . '/edit';
 			$uriHapus = base_url() . '/dashboard/kelas/' . $data->id_kelas . '/hapus';
 
