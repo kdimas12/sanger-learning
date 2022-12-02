@@ -10,36 +10,38 @@ class Dbsanger extends Migration
 	{
 		// create tbl_jenis_kelas
 		$this->forge->addField([
-			'id_jenis' => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_jenis' => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
 			'nama_jenis' => ['type' => 'VARCHAR', 'constraint' => 20],
 		]);
 
-		$this->forge->addKey('id_jenis', true);
-		$this->forge->createTable('tbl_jenis_kelas');
+		$this->forge->addPrimaryKey('id_jenis');
+		$this->forge->createTable('tbl_jenis_kelas', false, ['ENGINE' => 'InnoDB']);
 
 		// create tbl_kelas
 		$this->forge->addField([
-			'id_kelas'   => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_kelas'   => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
 			'nama_kelas' => ['type' => 'VARCHAR', 'constraint' => 20],
-			'id_jenis'   => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_jenis'   => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
 			'ket_kelas'  => ['type' => 'TEXT', 'constraint' => 1000],
 			'harga'      => ['type' => 'INT', 'constraint' => 20],
 		]);
 
-		$this->forge->addKey('id_kelas', true);
+		$this->forge->addPrimaryKey('id_kelas');
+		$this->forge->addKey('id_jenis');
 		$this->forge->addForeignKey('id_jenis', 'tbl_jenis_kelas', 'id_jenis', 'CASCADE', 'SET NULL');
-		$this->forge->createTable('tbl_kelas');
+		$this->forge->createTable('tbl_kelas', false, ['ENGINE' => 'InnoDB']);
 
 		// create tbl_pendaftaran
 		$this->forge->addField([
-			'id_pendaftaran'      => ['type' => 'VARCHAR', 'constraint' => 15],
-			'id_kelas'            => ['type' => 'VARCHAR', 'constraint' => 15],
+			'id_pendaftaran'      => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
+			'id_kelas'            => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true],
 			'tanggal_pendaftaran' => ['type' => 'DATETIME'],
 		]);
 
-		$this->forge->addKey('id_pendaftaran', true);
+		$this->forge->addPrimaryKey('id_pendaftaran');
+		$this->forge->addKey('id_kelas');
 		$this->forge->addForeignKey('id_kelas', 'tbl_kelas', 'id_kelas', 'CASCADE', 'SET NULL');
-		$this->forge->createTable('tbl_pendaftaran');
+		$this->forge->createTable('tbl_pendaftaran', false, ['ENGINE' => 'InnoDB']);
 
 		// create tbl_konfirmasi 
 		$this->forge->addField([
@@ -50,9 +52,10 @@ class Dbsanger extends Migration
 			'tanggal_administrasi' => ['type' => 'DATE', 'null' => true]
 		]);
 
-		$this->forge->addKey('id_konfirmasi', true);
-		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'CASCADE');
-		$this->forge->createTable('tbl_konfirmasi');
+		$this->forge->addPrimaryKey('id_konfirmasi');
+		$this->forge->addKey('id_pendaftaran');
+		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'SET NULL');
+		$this->forge->createTable('tbl_konfirmasi', false, ['ENGINE' => 'InnoDB']);
 
 		//create tbl_user
 		$this->forge->addField([
@@ -67,12 +70,13 @@ class Dbsanger extends Migration
 			'alamat_lengkap' => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
 			'kota'           => ['type' => 'VARCHAR', 'constraint' => 50, 'null' => true],
 			'no_handphone'   => ['type' => 'VARCHAR', 'constraint' => 50, 'null' => true],
-			'id_pendaftaran' => ['type' => 'VARCHAR', 'constraint' => 5, 'null' => true]
+			'id_pendaftaran' => ['type' => 'VARCHAR', 'constraint' => 15, 'null' => true]
 		]);
 
-		$this->forge->addKey('id_user', true);
+		$this->forge->addPrimaryKey('id_user');
+		$this->forge->addKey('id_pendaftaran');
 		$this->forge->addForeignKey('id_pendaftaran', 'tbl_pendaftaran', 'id_pendaftaran', 'CASCADE', 'SET NULL');
-		$this->forge->createTable('tbl_user');
+		$this->forge->createTable('tbl_user', false, ['ENGINE' => 'InnoDB']);
 	}
 
 	public function down()
