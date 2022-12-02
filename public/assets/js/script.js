@@ -8,12 +8,15 @@ $(document).ready(function () {
     columns: [
       { data: "id_kelas", name: "id_kelas" },
       { data: "nama_kelas", name: "nama_kelas" },
-      { data: "id_jenis", name: "id_jenis" },
+      { data: "nama_jenis", name: "nama_jenis" },
       { data: "ket_kelas", name: "ket_kelas" },
-      { data: "harga", name: "harga" },
+      {
+        data: "harga",
+        render: $.fn.dataTable.render.number(".", ",", 2, "Rp "),
+      },
       { data: "action", name: "action" },
     ],
-    columnDefs: [{ width: 100, targets: 5 }],
+    columnDefs: [{ width: 400, targets: 3 }],
   });
 
   const url = window.location.href;
