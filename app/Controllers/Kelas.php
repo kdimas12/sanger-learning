@@ -3,24 +3,22 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\CoursesModel;
+use App\Models\KelasModel;
 use App\Models\PendaftaranKelasModel;
 use App\Models\UserModel;
 
-class Courses extends BaseController
+class Kelas extends BaseController
 {
-	protected $coursesModel;
-
 	public function __construct()
 	{
-		$this->coursesModel = new CoursesModel();
+		$this->kelasModel = new KelasModel();
 		$this->pendaftaranKelasModel = new PendaftaranKelasModel();
 		$this->userModel = new UserModel();
 	}
 
 	public function index()
 	{
-		$dataCourses = $this->coursesModel->findAll();
+		$dataCourses = $this->kelasModel->findAll();
 
 		function group_by($key, $data)
 		{
@@ -37,10 +35,10 @@ class Courses extends BaseController
 		$result = group_by("id_jenis", $dataCourses);
 
 		$data = array(
-			'title' => 'Courses',
-			'courses' => $result,
+			'title' => 'Kelas',
+			'kelas' => $result,
 		);
 
-		return view('courses', $data);
+		return view('kelas', $data);
 	}
 }

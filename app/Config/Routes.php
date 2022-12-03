@@ -39,8 +39,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->group('courses', function ($routes) {
-	$routes->get('/', 'Courses::index');
+$routes->group('kelas', function ($routes) {
+	$routes->get('/', 'Kelas::index');
 });
 $routes->group('login', ['filter' => 'redirectAuth'], function ($routes) {
 	$routes->get('/', 'Login::index');

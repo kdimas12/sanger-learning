@@ -3,14 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\CoursesModel;
+use App\Models\KelasModel;
 use Irsyadulibad\DataTables\DataTables;
 
 class AdminKelas extends BaseController
 {
     public function __construct()
     {
-        $this->coursesModel = new CoursesModel();
+        $this->kelasModel = new KelasModel();
     }
 
     public function index()
@@ -35,7 +35,7 @@ class AdminKelas extends BaseController
                 'ket_kelas' => $this->request->getVar('ket_kelas'),
                 'harga' => $this->request->getVar('harga'),
             ];
-            $this->coursesModel->insert($dataKelas);
+            $this->kelasModel->insert($dataKelas);
             return redirect()->to(base_url('dashboard/kelas'));
         }
         echo view('dashboard/kelas_tambah');
@@ -43,7 +43,7 @@ class AdminKelas extends BaseController
 
     public function edit($id)
     {
-        $data['kelas'] = $this->coursesModel->where('id_kelas', $id)->first();
+        $data['kelas'] = $this->kelasModel->where('id_kelas', $id)->first();
 
         $validation =  \Config\Services::validation();
         $validation->setRules([
