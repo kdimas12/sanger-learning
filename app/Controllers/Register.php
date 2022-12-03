@@ -7,17 +7,19 @@ use App\Models\UserModel;
 
 class Register extends BaseController
 {
+	public function __construct()
+	{
+		$this->userModel = new UserModel();
+	}
+
 	public function index()
 	{
 		// inlcude helper form
 		helper(['form']);
-		$data = [];
-		return view('register', $data);
-	}
+		if ($this->request->getMethod(false) !== 'post') {
+			return view('register');
+		}
 
-	public function save()
-	{
-		helper(['form']);
 		$rules = [
 			'firstName'				=> 'required|min_length[3]|max_length[20]',
 			'lastName'				=> 'required|min_length[3]|max_length[20]',
@@ -26,20 +28,20 @@ class Register extends BaseController
 			'confirmPassword'		=> 'matches[password]'
 		];
 
-		if ($this->validate($rules)) {
-			$model = new UserModel();
-			$data = [
-				'role'			=> 'user',
-				'nama_depan'	=> $this->request->getVar('firstName'),
-				'nama_belakang'	=> $this->request->getVar('lastName'),
-				'email'			=> $this->request->getVar('email'),
-				'password'		=> password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-			];
-			$model->save($data);
-			return redirect()->to('/login');
-		} else {
-			$data['validation']	= $this->validator;
-			return view('register', $data);
+		if (!$this->validate($rules)) {
+			return view('register', [
+				'validation' => $this->validator,
+			]);
 		}
+		$data = [
+			'role'			=> 'user',
+			'nama_depan'	=> $this->request->getVar('firstName'),
+			'nama_belakang'	=> $this->request->getVar('lastName'),
+			'email'			=> $this->request->getVar('email'),
+			'password'		=> password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+		];
+		$this->userModel->save($data);
+		// return view('login');
+		return redirect()->to('/login');
 	}
 }

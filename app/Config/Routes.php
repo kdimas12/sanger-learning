@@ -38,6 +38,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('form', 'Form::index');
+$routes->post('form', 'Form::index');
+
 $routes->get('/', 'Home::index');
 $routes->group('kelas', function ($routes) {
 	$routes->get('/', 'Kelas::index');
@@ -46,10 +49,12 @@ $routes->group('login', ['filter' => 'redirectAuth'], function ($routes) {
 	$routes->get('/', 'Login::index');
 	$routes->post('auth', 'Login::auth');
 });
-$routes->group('register', ['filter' => 'redirectAuth'], function ($routes) {
-	$routes->get('/', 'Register::index');
-	$routes->post('save', 'Register::save');
-});
+// $routes->group('register', ['filter' => 'redirectAuth'], function ($routes) {
+// 	$routes->get('/', 'Register::index');
+// 	$routes->post('save', 'Register::save');
+// });
+$routes->add('register', 'Register::index', ['filter' => 'redirectAuth']);
+
 $routes->get('/logout', 'Logout::index');
 // ['filter' => 'auth']
 $routes->get('/contact', 'Contact::index');

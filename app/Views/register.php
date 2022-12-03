@@ -5,7 +5,7 @@
 	<?php if (isset($validation)) : ?>
 		<div class="alert alert-danger"><?= $validation->listErrors() ?></div>
 	<?php endif; ?>
-	<form action="/register/save" method="post" class="mx-auto col-md-6 row g-3">
+	<form action="" method="post" class="mx-auto col-md-6 row g-3">
 		<div class="col-md-6">
 			<label for="firstName" class="form-label">First Name</label>
 			<input type="text" class="form-control" id="firstName" name="firstName" />
