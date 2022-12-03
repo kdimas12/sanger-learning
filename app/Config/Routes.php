@@ -64,13 +64,13 @@ $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 });
 
 // admin
-$routes->group('dashboard', function ($routes) {
-	$routes->get('/', 'Dashboard::index');
-	$routes->get('kelas', 'Dashboard::kelas');
-	$routes->add('kelas/tambah', 'Dashboard::tambah');
-	$routes->add('kelas/(:segment)/edit', 'Dashboard::edit/$1');
-	$routes->get('kelas/(:segment)/hapus', 'Dashboard::hapus/$1');
-	$routes->get('json', 'Dashboard::json');
+$routes->group('admin', function ($routes) {
+	$routes->get('/', 'Admin::index');
+	$routes->get('kelas', 'AdminKelas::index');
+	$routes->add('kelas/tambah', 'AdminKelas::tambah');
+	$routes->add('kelas/(:segment)/edit', 'AdminKelas::edit/$1');
+	$routes->get('kelas/(:segment)/hapus', 'AdminKelas::hapus/$1');
+	$routes->get('json', 'AdminKelas::json');
 });
 
 /*

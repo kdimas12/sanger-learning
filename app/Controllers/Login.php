@@ -28,6 +28,7 @@ class Login extends BaseController
 					'id_user'	=> $data['id_user'],
 					'userName'	=> $data['nama_depan'],
 					'email'		=> $data['email'],
+					'role'		=> $data['role'],
 					'logged_in'	=> TRUE
 				];
 				$session->set($sessionData);

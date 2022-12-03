@@ -3,7 +3,7 @@ $(document).ready(function () {
     processing: true,
     serverSide: true,
     ajax: {
-      url: "http://localhost:8080/dashboard/json",
+      url: "http://localhost:8080/admin/json",
     },
     columns: [
       { data: "id_kelas", name: "id_kelas" },
