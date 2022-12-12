@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
+use App\Models\KonfirmasiModel;
 use App\Models\PendaftaranKelasModel;
 use App\Models\UserModel;
 
@@ -14,6 +15,7 @@ class PendaftaranKelas extends BaseController
         $this->userModel = new UserModel();
         $this->kelasModel = new KelasModel();
         $this->pendaftaranKelasModel = new PendaftaranKelasModel();
+        $this->konfirmasiModel = new KonfirmasiModel();
     }
     public function index($idKelas = null)
     {
@@ -35,7 +37,15 @@ class PendaftaranKelas extends BaseController
             'id_kelas'              => $this->request->getVar('kelas'),
             'tanggal_pendaftaran'   => date('Y-m-d H:i:s'),
         ];
+
+        $kodeKonfirmasi = $this->konfirmasiModel->getKodeKonfirmasi();
+        $dataKonfirmasi = [
+            'id_konfirmasi' => $kodeKonfirmasi,
+            'id_pendaftaran' => $kodePendaftaran
+        ];
+
         $this->pendaftaranKelasModel->insert($dataPendaftaran);
+        $this->konfirmasiModel->insert($dataKonfirmasi);
 
         $dataUser = [
             'id_pendaftaran'    => $kodePendaftaran,
