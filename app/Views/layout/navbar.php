@@ -10,7 +10,7 @@
 					<a class="nav-link" aria-current="page" href="<?= base_url() ?>">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('courses') ?>">Courses</a>
+					<a class="nav-link" href="<?= base_url('kelas') ?>">Courses</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('contact') ?>">Contact Us</a>
