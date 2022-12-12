@@ -15,4 +15,9 @@ class KonfirmasiModel extends Model
         'bukti_administrasi',
         'tanggal_administrasi'
     ];
+
+    public function getKodeKonfirmasi()
+    {
+        return 'KONF' . Date('ymds');;
+    }
 }
