@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\CoursesModel;
+use App\Models\KelasModel;
 use App\Models\PendaftaranKelasModel;
 use App\Models\UserModel;
 
@@ -12,12 +12,12 @@ class PendaftaranKelas extends BaseController
     public function __construct()
     {
         $this->userModel = new UserModel();
-        $this->coursesModel = new CoursesModel();
+        $this->kelasModel = new KelasModel();
         $this->pendaftaranKelasModel = new PendaftaranKelasModel();
     }
     public function index($idKelas = null)
     {
-        $dataCourse = $this->coursesModel->findAll();
+        $dataCourse = $this->kelasModel->findAll();
 
         $data = array(
             'title'             => 'Pendaftaran Kelas',
