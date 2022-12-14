@@ -3,6 +3,12 @@
 <?= $this->section('content') ?>
 <!-- jumbotron -->
 <div class="container py-md-5 pt-5">
+	<?php if ($konfirmasi) : ?>
+		<div class="d-flex mb-3 alert alert-success">
+			<div class="p-2 align-self-center">Silahkan melakukan pembayaran dan konfirmasi</div>
+			<div class="ms-auto p-2"><a href="#" class="btn btn-success">Konfirmasi</a></div>
+		</div>
+	<?php endif ?>
 	<div class="row g-5">
 		<div class="col-md-7 col-xs-12 align-self-center text-center text-md-start">
 			<h2>
