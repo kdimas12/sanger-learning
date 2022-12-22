@@ -68,7 +68,7 @@ $routes->group('pendaftaran-kelas', ['filter' => 'auth'], function ($routes) {
 	$routes->post('daftar', 'PendaftaranKelas::daftar');
 });
 
-$routes->get('/invoice', 'Invoice::index', ['filter' => 'auth']);
+$routes->get('/invoice/(:segment)', 'Invoice::index/$1', ['filter' => 'auth']);
 
 // admin
 $routes->group('admin', function ($routes) {
