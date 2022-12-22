@@ -8,4 +8,5 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.min.css') ?>">
 	<script src="<?= base_url('assets/js/jquery-3.6.0.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/jquery.inputmask.min.js') ?>"></script>
 </head>
