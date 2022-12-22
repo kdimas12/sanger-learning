@@ -6,7 +6,7 @@
 	<?php if ($konfirmasi) : ?>
 		<div class="d-flex mb-3 alert alert-success">
 			<div class="p-2 align-self-center">Silahkan melakukan pembayaran dan konfirmasi</div>
-			<div class="ms-auto p-2"><a href="#" class="btn btn-success">Konfirmasi</a></div>
+			<div class="ms-auto p-2"><a href="<?= base_url('invoice') ?>/<?= $konfirmasi[0]['id_konfirmasi'] ?>" class="btn btn-success">Konfirmasi</a></div>
 		</div>
 	<?php endif ?>
 	<div class="row g-5">
