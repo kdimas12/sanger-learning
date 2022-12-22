@@ -5,7 +5,7 @@
     <!-- title row -->
     <div class="row">
         <div class="col-12">
-            <h4>INVOICE : <b>WE2022218351117500</b></h4>
+            <h4>INVOICE : <b><?= $konfirmasi['id_konfirmasi'] ?></b></h4>
             <table class="table table-striped">
                 <thead class="table-dark">
                     <th>Item</th>
@@ -13,8 +13,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Web Design</td>
-                        <td class="text-end">Rp. 500.000</td>
+                        <td><?= $konfirmasi['nama_kelas'] ?></td>
+                        <td class="text-end"><?= $konfirmasi['nama_jenis'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Harga</td>
+                        <td class="text-end"><?= "Rp. " . number_format($konfirmasi['harga'], 0, ',', '.') ?></td>
                     </tr>
                     <tr>
                         <td>Kode Unik</td>
@@ -22,7 +26,7 @@
                     </tr>
                     <tr>
                         <th>Total</th>
-                        <td class="text-end">Rp. 500.005</td>
+                        <td class="text-end"><?= "Rp. " . number_format($konfirmasi['harga'] + 5, 0, ',', '.') ?></td>
                     </tr>
                 </tbody>
             </table>
