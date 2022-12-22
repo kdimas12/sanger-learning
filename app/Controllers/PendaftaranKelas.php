@@ -51,6 +51,6 @@ class PendaftaranKelas extends BaseController
             'id_pendaftaran'    => $kodePendaftaran,
         ];
         $this->userModel->update($this->userModel->find(session()->get('id_user')), $dataUser);
-        return redirect()->to(base_url());
+        return redirect()->to(base_url('invoice/' . $kodeKonfirmasi));
     }
 }
