@@ -18,6 +18,7 @@ $(document).ready(function () {
     ],
     columnDefs: [{ width: 400, targets: 3 }],
   });
+  $("#data-siswa").DataTable({});
 
   const url = window.location.href;
   $("ul.navbar-nav a")

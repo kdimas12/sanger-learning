@@ -12,7 +12,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-landmark"></i></div>
                     Kelas
                 </a>
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('admin/siswa') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Siswa
                 </a>

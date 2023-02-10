@@ -78,6 +78,7 @@ $routes->group('admin', function ($routes) {
 	$routes->add('kelas/(:segment)/edit', 'AdminKelas::edit/$1');
 	$routes->get('kelas/(:segment)/hapus', 'AdminKelas::hapus/$1');
 	$routes->get('json', 'AdminKelas::json');
+	$routes->get('siswa', 'AdminSiswa::index');
 });
 
 /*
